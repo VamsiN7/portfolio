@@ -53,6 +53,9 @@
 				<!-- Hero Section -->
 					<section id="hero">
 						<div class="hero-content">
+							<div class="profile-image" data-aos="fade-right">
+								<img src="images/profile.jpg" alt="Vamsi Naradasu" />
+							</div>
 							<div class="hero-text" data-aos="fade-up">
 								<h1>Vamsi Naradasu</h1>
 								<div class="typewriter">Software Engineer</div>
@@ -62,8 +65,32 @@
 									<a href="#contact" class="btn secondary">Get in Touch</a>
 								</div>
 							</div>
-							<div class="hero-image" data-aos="fade-left">
-								<img src="images/profile.jpg" alt="Vamsi Naradasu" />
+							<div class="skills-grid" data-aos="fade-left">
+								<div class="skill-block">Java</div>
+								<div class="skill-block">Rust</div>
+								<div class="skill-block">Python</div>
+								<div class="skill-block">SQL</div>
+								<div class="skill-block">MySQL</div>
+								<div class="skill-block">MongoDB</div>
+								<div class="skill-block">PostgreSQL</div>
+								<div class="skill-block">Microservices</div>
+								<div class="skill-block">REST API</div>
+								<div class="skill-block">Datalakes</div>
+								<div class="skill-block">Spring Boot</div>
+								<div class="skill-block">Kafka</div>
+								<div class="skill-block">Redis</div>
+								<div class="skill-block">gRPC</div>
+								<div class="skill-block">Protobuf</div>
+								<div class="skill-block">AWS</div>
+								<div class="skill-block">Azure</div>
+								<div class="skill-block">CI/CD</div>
+								<div class="skill-block">Jenkins</div>
+								<div class="skill-block">Kubernetes</div>
+								<div class="skill-block">Docker</div>
+								<div class="skill-block">React</div>
+								<div class="skill-block">Node.js</div>
+								<div class="skill-block">Git</div>
+								<div class="skill-block">Postman</div>
 							</div>
 						</div>
 						<div class="scroll-indicator">
@@ -164,17 +191,17 @@
 					<section id="skills" class="section">
 						<div class="container">
 							<h2 class="section-title" data-aos="fade-up">Skills & Expertise</h2>
-							<div class="skills-grid">
-								<div class="skill-category" data-aos="fade-up">
-									<h3>Backend Development</h3>
-									<div class="skill-items">
+							<div class="skills-container">
+								<div class="skills-category" data-aos="fade-up">
+									<h3>Programming Languages</h3>
+									<div class="skills-grid">
 										<div class="skill-item">
 											<i class="fab fa-java"></i>
 											<span>Java</span>
 										</div>
 										<div class="skill-item">
-											<i class="fab fa-node-js"></i>
-											<span>Node.js</span>
+											<i class="fas fa-code"></i>
+											<span>Rust</span>
 										</div>
 										<div class="skill-item">
 											<i class="fab fa-python"></i>
@@ -182,20 +209,107 @@
 										</div>
 									</div>
 								</div>
-								<div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+
+								<div class="skills-category" data-aos="fade-up" data-aos-delay="100">
+									<h3>Databases</h3>
+									<div class="skills-grid">
+										<div class="skill-item">
+											<i class="fas fa-database"></i>
+											<span>SQL</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-database"></i>
+											<span>MySQL</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-database"></i>
+											<span>MongoDB</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-database"></i>
+											<span>PostgreSQL</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="skills-category" data-aos="fade-up" data-aos-delay="200">
+									<h3>Backend & Architecture</h3>
+									<div class="skills-grid">
+										<div class="skill-item">
+											<i class="fas fa-server"></i>
+											<span>Microservices</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-code"></i>
+											<span>REST API</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-database"></i>
+											<span>Datalakes</span>
+										</div>
+										<div class="skill-item">
+											<i class="fab fa-java"></i>
+											<span>Spring Boot</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-code"></i>
+											<span>gRPC</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-code"></i>
+											<span>Protobuf</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="skills-category" data-aos="fade-up" data-aos-delay="300">
 									<h3>Cloud & DevOps</h3>
-									<div class="skill-items">
+									<div class="skills-grid">
 										<div class="skill-item">
 											<i class="fab fa-aws"></i>
 											<span>AWS</span>
 										</div>
 										<div class="skill-item">
-											<i class="fab fa-docker"></i>
-											<span>Docker</span>
+											<i class="fas fa-cloud"></i>
+											<span>Azure</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-code-branch"></i>
+											<span>CI/CD</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-cogs"></i>
+											<span>Jenkins</span>
 										</div>
 										<div class="skill-item">
 											<i class="fas fa-cube"></i>
 											<span>Kubernetes</span>
+										</div>
+										<div class="skill-item">
+											<i class="fab fa-docker"></i>
+											<span>Docker</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="skills-category" data-aos="fade-up" data-aos-delay="400">
+									<h3>Frontend & Tools</h3>
+									<div class="skills-grid">
+										<div class="skill-item">
+											<i class="fab fa-react"></i>
+											<span>React</span>
+										</div>
+										<div class="skill-item">
+											<i class="fab fa-node-js"></i>
+											<span>Node.js</span>
+										</div>
+										<div class="skill-item">
+											<i class="fab fa-git-alt"></i>
+											<span>Git</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-tools"></i>
+											<span>Postman</span>
 										</div>
 									</div>
 								</div>

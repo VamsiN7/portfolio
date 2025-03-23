@@ -102,12 +102,36 @@ body {
 }
 
 .hero-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 300px 1fr 1fr;
+    gap: 2rem;
     align-items: center;
+    padding: 0 2rem;
+}
+
+.profile-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover img {
+    transform: scale(1.05);
+}
+
+.hero-text {
+    text-align: center;
 }
 
 .hero-text h1 {
@@ -369,36 +393,48 @@ body {
     background: white;
 }
 
-.skills-grid {
+.skills-container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
 }
 
-.skill-category {
+.skills-category {
     background: #f8f9fa;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 8px;
     transition: var(--transition);
 }
 
-.skill-category:hover {
+.skills-category:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-.skill-category h3 {
+.skills-category h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     color: var(--dark-color);
+    position: relative;
+    padding-bottom: 0.5rem;
 }
 
-.skill-items {
+.skills-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--dark-color);
+}
+
+.skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .skill-item {
@@ -408,53 +444,40 @@ body {
     gap: 0.5rem;
     padding: 1rem;
     background: white;
-    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .skill-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: var(--dark-color);
+    color: white;
+    border-color: var(--dark-color);
 }
 
 .skill-item i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .skill-item span {
     font-size: 0.9rem;
-    color: #666;
+    text-align: center;
 }
 
-/* Java */
-.fa-java {
-    color: #E76F00;
-}
+/* Skill Icons Colors */
+.fa-java { color: #E76F00; }
+.fa-python { color: #3776AB; }
+.fa-node-js { color: #339933; }
+.fa-react { color: #61DAFB; }
+.fa-aws { color: #FF9900; }
+.fa-docker { color: #2496ED; }
+.fa-git-alt { color: #F34F29; }
 
-/* Node.js */
-.fa-node-js {
-    color: #339933;
-}
-
-/* Python */
-.fa-python {
-    color: #3776AB;
-}
-
-/* AWS */
-.fa-aws {
-    color: #FF9900;
-}
-
-/* Docker */
-.fa-docker {
-    color: #2496ED;
-}
-
-/* Kubernetes */
-.fa-cube {
-    color: #326CE5;
+.skill-item:hover i {
+    color: white;
 }
 
 /* Contact Section */
@@ -554,28 +577,42 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .profile-image {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .skills-container {
+        grid-column: 1 / -1;
+    }
+}
+
 @media (max-width: 768px) {
-    .hero-content,
-    .about-content,
-    .contact-content {
+    .hero-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        text-align: center;
     }
-
-    .hero-text h1 {
-        font-size: 2.5rem;
+    
+    .profile-image {
+        max-width: 200px;
+        margin: 0 auto;
     }
-
-    .typewriter {
-        font-size: 1.5rem;
+    
+    .hero-text {
+        margin: 2rem 0;
     }
-
-    .nav-links {
-        display: none;
+    
+    .skills-container {
+        grid-template-columns: 1fr;
     }
-
-    .menu-toggle {
-        display: block;
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
 

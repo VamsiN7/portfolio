@@ -201,6 +201,79 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+/* Hero Section Skills Grid */
+.hero-content .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0;
+    padding: 0;
+    aspect-ratio: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    /* background: #000000; */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.hero-content .skill-block {
+    background: #f8f9fa;
+        /* background: #000000; */
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.hero-content .skill-block:nth-child(4n) {
+    border-right: none;
+}
+
+.hero-content .skill-block:nth-child(n+21) {
+    border-bottom: none;
+}
+
+/* Create uneven sizes for different blocks in hero */
+.hero-content .skill-block:nth-child(3n) {
+    grid-column: span 2;
+}
+
+.hero-content .skill-block:nth-child(3n+1) {
+    grid-column: span 1;
+}
+
+.hero-content .skill-block:nth-child(3n+2) {
+    grid-column: span 1;
+}
+
+/* Make some blocks taller in hero */
+.hero-content .skill-block:nth-child(5n) {
+    grid-row: span 2;
+}
+
+/* Make some blocks both wider and taller in hero */
+.hero-content .skill-block:nth-child(7n) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.hero-content .skill-block:hover {
+    background: #000000;
+    color: white;
+    transform: scale(1.02);
+    z-index: 1;
+}
+
 /* About Section */
 #about {
     padding: 6rem 2rem;
@@ -387,7 +460,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* Skills Section */
+/* Skills & Expertise Section */
 #skills {
     padding: 6rem 2rem;
     background: white;
@@ -431,13 +504,13 @@ body {
     background: var(--dark-color);
 }
 
-.skills-grid {
+#skills .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
 }
 
-.skill-item {
+#skills .skill-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -450,19 +523,19 @@ body {
     cursor: pointer;
 }
 
-.skill-item:hover {
+#skills .skill-item:hover {
     transform: translateY(-3px);
     background: var(--dark-color);
     color: white;
     border-color: var(--dark-color);
 }
 
-.skill-item i {
+#skills .skill-item i {
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
-.skill-item span {
+#skills .skill-item span {
     font-size: 0.9rem;
     text-align: center;
 }
@@ -476,7 +549,7 @@ body {
 .fa-docker { color: #2496ED; }
 .fa-git-alt { color: #F34F29; }
 
-.skill-item:hover i {
+#skills .skill-item:hover i {
     color: white;
 }
 
@@ -587,7 +660,7 @@ footer {
         margin: 0 auto;
     }
     
-    .skills-container {
+    .hero-content .skills-grid {
         grid-column: 1 / -1;
     }
 }
@@ -607,12 +680,17 @@ footer {
         margin: 2rem 0;
     }
     
-    .skills-container {
-        grid-template-columns: 1fr;
+    .hero-content .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
     
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    .hero-content .skill-block:nth-child(3n),
+    .hero-content .skill-block:nth-child(3n+1),
+    .hero-content .skill-block:nth-child(3n+2),
+    .hero-content .skill-block:nth-child(5n),
+    .hero-content .skill-block:nth-child(7n) {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 }
 

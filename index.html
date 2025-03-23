@@ -1,11 +1,12 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>Vamsi Naradasu Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Vamsi Naradasu | Software Engineer</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<!-- <link rel="stylesheet" href="swiper.css" /> -->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -15,189 +16,266 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">Vamsi Naradasu</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
+						<div class="header-content">
+							<a href="#" class="logo">VN</a>
+							<nav class="nav-links">
+								<a href="#hero">Home</a>
+								<a href="#about">About</a>
+								<a href="#projects">Projects</a>
+								<a href="#skills">Skills</a>
+								<a href="#contact">Contact</a>
+							</nav>
+							<div class="menu-toggle">
+								<i class="fas fa-bars"></i>
+							</div>
+						</div>
 					</header>
 
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<li><a href="generic.html">Recommendations</a></li>
-								<li><a href="elements.html">Awards</a></li>
-								<!-- <li><a href="#">Log In</a></li>
-								<li><a href="#">Sign Up</a></li> -->
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
-					
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<div class="logo"><span class="icon fa-gem"></span></div>
-							<h2>Vamsi Naradasu</h2>
-							<p>Welcome! I'm Vamsi Naradasu, a software engineer specializing in microservices architecture and cloud computing. My
-								journey, from Northeastern University to Tata Consultancy Services, has been marked by a passion for developing
-								innovative software solutions. From enhancing digital platforms for scalability to pioneering applications like
-								ResQReach and WebScrapeServe, my work exemplifies a blend of technical acumen and creative problem-solving. This
-								portfolio showcases my projects, highlighting my commitment to transformative and impactful technology</p>
+				<!-- Mobile Menu -->
+					<div id="menu">
+						<div class="menu-content">
+							<div class="menu-header">
+								<a href="#" class="logo">VN</a>
+								<div class="close">
+									<i class="fas fa-times"></i>
+								</div>
 							</div>
+							<div class="menu-links">
+								<a href="#hero">Home</a>
+								<a href="#about">About</a>
+								<a href="#projects">Projects</a>
+								<a href="#skills">Skills</a>
+								<a href="#contact">Contact</a>
+							</div>
+						</div>
+					</div>
+					
+				<!-- Hero Section -->
+					<section id="hero">
+						<div class="hero-content">
+							<div class="hero-text" data-aos="fade-up">
+								<h1>Vamsi Naradasu</h1>
+								<div class="typewriter">Software Engineer</div>
+								<p>I learn fast, get things done, am curious and shows bias for action! Here's more <a href="#about">about me</a></p>
+								<div class="hero-cta">
+									<a href="#projects" class="btn primary">View Projects</a>
+									<a href="#contact" class="btn secondary">Get in Touch</a>
+								</div>
+							</div>
+							<div class="hero-image" data-aos="fade-left">
+								<img src="images/profile.jpg" alt="Vamsi Naradasu" />
+							</div>
+						</div>
+						<div class="scroll-indicator">
+							<a href="#about"><i class="fas fa-chevron-down"></i></a>
+						</div>
 					</section>
-				<!-- Wrapper -->
-					<section id="wrapper">
 
-						<!-- One -->
-							<section id="one" class="wrapper spotlight style1">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">One Platform - Western Union Financial Services Inc</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
+				<!-- About Section -->
+					<section id="about" class="section">
+						<div class="container">
+							<h2 class="section-title" data-aos="fade-up">About Me</h2>
+							<!-- <div class="about-content"> -->
+								<div class="about-text" data-aos="fade-right">
+									<p>I'm a software engineer specializing in microservices architecture and cloud computing. My journey, from Northeastern University to Tata Consultancy Services, has been marked by a passion for developing innovative software solutions.</p>
+									<p>From enhancing digital platforms for scalability to pioneering applications like ResQReach and WebScrapeServe, my work exemplifies a blend of technical acumen and creative problem-solving.</p>
+								</div>
+								<!-- <div class="about-stats" data-aos="fade-left">
+									<div class="stat-item">
+										<span class="stat-number">5+</span>
+										<span class="stat-label">Years Experience</span>
+									</div>
+									<div class="stat-item">
+										<span class="stat-number">20+</span>
+										<span class="stat-label">Projects Completed</span>
+									</div>
+									<div class="stat-item">
+										<span class="stat-number">10+</span>
+										<span class="stat-label">Technologies</span>
+									</div>
+								</div> -->
+							<!-- </div> -->
+						</div>
+					</section>
+
+				<!-- Projects Section -->
+					<section id="projects" class="section">
+						<div class="container">
+							<h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+							<div class="projects-grid">
+								<!-- Project Card 1 -->
+								<article class="project-card" data-aos="fade-up">
+									<div class="project-image">
+										<img src="images/pic01.jpg" alt="One Platform" />
+										<div class="project-overlay">
+											<div class="project-links">
+												<a href="https://github.com/yourusername/project1" target="_blank" class="project-link">
+													<i class="fab fa-github"></i>
+												</a>
+												<a href="https://project1-demo.com" target="_blank" class="project-link">
+													<i class="fas fa-external-link-alt"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="project-content">
+										<h3>One Platform</h3>
+										<p>Western Union Financial Services Inc</p>
+										<div class="project-tech">
+											<span>Microservices</span>
+											<span>Cloud</span>
+											<span>Java</span>
+										</div>
+									</div>
+								</article>
+
+								<!-- Project Card 2 -->
+								<article class="project-card" data-aos="fade-up" data-aos-delay="100">
+									<div class="project-image">
+										<img src="images/pic02.jpg" alt="ResQReach" />
+										<div class="project-overlay">
+											<div class="project-links">
+												<a href="https://github.com/yourusername/project2" target="_blank" class="project-link">
+													<i class="fab fa-github"></i>
+												</a>
+												<a href="https://project2-demo.com" target="_blank" class="project-link">
+													<i class="fas fa-external-link-alt"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="project-content">
+										<h3>ResQReach</h3>
+										<p>A disaster management platform</p>
+										<div class="project-tech">
+											<span>React</span>
+											<span>Node.js</span>
+											<span>MongoDB</span>
+										</div>
+									</div>
+								</article>
+
+								<!-- Add more project cards similarly -->
+							</div>
+						</div>
+					</section>
+
+				<!-- Skills Section -->
+					<section id="skills" class="section">
+						<div class="container">
+							<h2 class="section-title" data-aos="fade-up">Skills & Expertise</h2>
+							<div class="skills-grid">
+								<div class="skill-category" data-aos="fade-up">
+									<h3>Backend Development</h3>
+									<div class="skill-items">
+										<div class="skill-item">
+											<i class="fab fa-java"></i>
+											<span>Java</span>
+										</div>
+										<div class="skill-item">
+											<i class="fab fa-node-js"></i>
+											<span>Node.js</span>
+										</div>
+										<div class="skill-item">
+											<i class="fab fa-python"></i>
+											<span>Python</span>
+										</div>
 									</div>
 								</div>
-							</section>
-
-						<!-- Two -->
-							<section id="two" class="wrapper alt spotlight style2">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">ResQReach - A disaster management platform</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
+								<div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+									<h3>Cloud & DevOps</h3>
+									<div class="skill-items">
+										<div class="skill-item">
+											<i class="fab fa-aws"></i>
+											<span>AWS</span>
+										</div>
+										<div class="skill-item">
+											<i class="fab fa-docker"></i>
+											<span>Docker</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-cube"></i>
+											<span>Kubernetes</span>
+										</div>
 									</div>
 								</div>
-							</section>
+							</div>
+						</div>
+					</section>
 
-						<!-- Three -->
-							<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Detection of Malware Applications using Machine Learning</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
+				<!-- Contact Section -->
+					<section id="contact" class="section">
+						<div class="container">
+							<h2 class="section-title" data-aos="fade-up">Get in Touch</h2>
+							<div class="contact-content">
+								<div class="contact-info" data-aos="fade-right">
+									<div class="contact-item">
+										<i class="fas fa-envelope"></i>
+										<a href="mailto:naradasu.v@northeastern.edu">naradasu.v@northeastern.edu</a>
+									</div>
+									<div class="contact-item">
+										<i class="fas fa-phone"></i>
+										<a href="tel:+18576939429">(857) 693-9429</a>
+									</div>
+									<div class="contact-item">
+										<i class="fas fa-map-marker-alt"></i>
+										<span>Boston, MA 02119</span>
+									</div>
+									<div class="social-links">
+										<a href="#" class="social-link"><i class="fab fa-github"></i></a>
+										<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+										<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
 									</div>
 								</div>
-							</section>
-
-							<section id="two" class="wrapper alt spotlight style2">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">WebScrape Serve </h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
+								<form class="contact-form" data-aos="fade-left">
+									<div class="form-group">
+										<input type="text" name="name" placeholder="Your Name" required />
 									</div>
-								</div>
-							</section>
-
-							<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Job Applicant Tracking System</h2>
-										<p>Lorem ipsum dolor sit amet, etiam lorem adipiscing elit. Cras turpis ante, nullam sit amet turpis non, sollicitudin posuere urna. Mauris id tellus arcu. Nunc vehicula id nulla dignissim dapibus. Nullam ultrices, neque et faucibus viverra, ex nulla cursus.</p>
-										<a href="#" class="special">Learn more</a>
+									<div class="form-group">
+										<input type="email" name="email" placeholder="Your Email" required />
 									</div>
-								</div>
-							</section>
-						<!-- Four -->
-							<section id="four" class="wrapper alt style1">
-								<div class="inner">
-									<h2 class="major">Vitae phasellus</h2>
-									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-									<section class="features">
-										<article>
-											<a href="#" class="image"><img src="images/Recommendation.jpeg" alt="" /></a>
-											<h3 class="major">Recommendation</h3>
-											<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p> -->
-											<!-- <a href="#" class="special">Learn more</a> --> -->
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/Certification.jpeg" alt="" /></a>
-											<h3 class="major">Certification</h3>
-											<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a> -->
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/Top skills.jpeg" alt="" /></a>
-											<h3 class="major">Top skills</h3>
-											<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a> -->
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/Awards.jpeg" alt="" /></a>
-											<h3 class="major">Awards</h3>
-											<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a> -->
-										</article>
-									</section>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">Browse All</a></li>
-									</ul> -->
-								</div>
-							</section>
-
+									<div class="form-group">
+										<textarea name="message" placeholder="Your Message" required></textarea>
+									</div>
+									<button type="submit" class="btn primary">Send Message</button>
+								</form>
+							</div>
+						</div>
 					</section>
 
 				<!-- Footer -->
-					<!-- <section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-							<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
+					<footer id="footer">
+						<div class="container">
+							<div class="footer-content">
+								<div class="footer-text">
+									<p>&copy; 2024 Vamsi Naradasu. All rights reserved.</p>
 								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-							<ul class="contact">
-								<li class="icon solid fa-home">
-									Vamsi Naradasu<br />
-									14 John Eliot Sq<br />
-									Boston, MA 02119
-								</li>
-								<li class="icon solid fa-phone">(857) 693-9429</li>
-								<li class="icon solid fa-envelope"><a href="#"> naradasu.v@northeastern.edu</a></li>
-								<li class="icon brands fa-twitter"><a href="#">twitter.com/untitled-tld</a></li>
-								<li class="icon brands fa-facebook-f"><a href="#">facebook.com/untitled-tld</a></li>
-								<li class="icon brands fa-instagram"><a href="#">instagram.com/untitled-tld</a></li>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
+								<div class="footer-social">
+									<a href="#" class="social-link"><i class="fab fa-github"></i></a>
+									<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+									<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+								</div>
+							</div>
 						</div>
-					</section> -->
+					</footer>
 
 			</div>
 
 		<!-- Scripts -->
+			<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				AOS.init({
+					duration: 800,
+					once: true
+				});
+			</script>
 
+		<script src="assets/js/portfolio.js"></script>
 	</body>
 </html>

@@ -189,24 +189,6 @@ body {
     color: var(--dark-color);
     margin-bottom: 2rem;
     letter-spacing: 2px;
-    position: relative;
-    display: inline-block;
-}
-
-.typewriter::after {
-    content: '|';
-    position: absolute;
-    right: -4px;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
 }
 
 .hero-buttons {
@@ -1735,6 +1717,14 @@ a:hover::after, button:hover::after, .btn:hover::after {
 
 /* Mobile Grid Layout */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
     /* Hero Section Mobile */
     .hero-content {
         grid-template-columns: 1fr;
@@ -1753,205 +1743,114 @@ a:hover::after, button:hover::after, .btn:hover::after {
     }
 
     .hero-content .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
         max-width: 100%;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .hero-content .skill-block {
-        flex: 1 1 calc(50% - 0.75rem);
-        min-width: 120px;
-        padding: 1rem;
-        font-size: 0.9rem;
-        background: white;
-        border: 1px solid #e9ecef;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .hero-content .skill-block:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border-color: #000;
+        padding: 0.75rem;
+        font-size: 0.8rem;
     }
 
     /* Projects Grid Mobile */
     .projects-grid {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 0 1rem;
     }
 
     .project-card {
         padding: 1.5rem;
-        border-radius: 12px;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .project-tech {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 1rem;
-    }
-
-    .project-tech span {
-        background: #f8f9fa;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        color: var(--dark-color);
-        border: 1px solid #e9ecef;
-        transition: all 0.3s ease;
     }
 
     /* Experience Timeline Mobile */
     .experience-timeline {
-        display: flex;
         flex-direction: column;
         gap: 2rem;
-        padding: 1rem;
     }
 
     .experience-card {
         width: 100%;
         margin: 0;
-        border-radius: 12px;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-    }
-
-    .experience-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
     /* Skills Grid Mobile */
     .skills-container {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
         padding: 0 1rem;
     }
 
     .skills-category {
-        padding: 1.5rem;
-        border-radius: 12px;
-        background: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 1.25rem;
     }
 
     #skills .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        margin-top: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
     }
 
     #skills .skill-item {
-        flex: 1 1 calc(33.333% - 0.75rem);
-        min-width: 100px;
-        padding: 1rem;
-        background: #f8f9fa;
-        border: 1px solid #e9ecef;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    #skills .skill-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        background: #000;
-        color: white;
-        border-color: #000;
+        padding: 0.5rem;
     }
 
     #skills .skill-item i {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
     }
 
     #skills .skill-item span {
-        font-size: 0.8rem;
-        line-height: 1.2;
+        font-size: 0.75rem;
     }
 
     /* About Section Mobile */
     .about-content {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
         padding: 0 1rem;
     }
 
     .about-image {
         max-width: 100%;
-        border-radius: 12px;
-        overflow: hidden;
     }
 
     .stats {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
-        padding: 1.5rem;
-        background: #f8f9fa;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .stat-item {
-        text-align: center;
         padding: 1rem;
-        background: white;
-        border-radius: 8px;
-        transition: all 0.3s ease;
     }
 
-    .stat-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Contact Section Mobile */
+    .contact-content {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-content .skill-block {
-        flex: 1 1 100%;
+    .hero-content .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    #skills .skill-item {
-        flex: 1 1 calc(50% - 0.75rem);
+    #skills .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .stats {
         grid-template-columns: 1fr;
     }
 
-    .project-tech span {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
+    .menu-links a {
+        font-size: 1.25rem;
     }
 }

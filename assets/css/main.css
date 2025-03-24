@@ -276,7 +276,7 @@ body {
 
 /* About Section */
 #about {
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     background: white;
 }
 
@@ -305,12 +305,28 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
+}
+
+.about-text {
+    position: relative;
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
     color: #666;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.about-text p:last-child {
+    margin-bottom: 2rem;
+}
+
+.about-text p strong {
+    color: var(--dark-color);
+    font-weight: 600;
 }
 
 .stats {
@@ -318,26 +334,55 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
 }
 
 .stat-item {
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
 }
 
 .stat-item h3 {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--dark-color);
     margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
 .stat-item p {
     color: #666;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-image {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #000;
+    transition: all 0.3s ease;
+}
+
+.about-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .about-image img {
     width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
 }
 
 /* Projects Section */
@@ -722,6 +767,18 @@ footer {
     }
 }
 
+@media (max-width: 992px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-content {
         grid-template-columns: 1fr;
@@ -768,6 +825,15 @@ footer {
     
     .project-card {
         padding: 1.5rem;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
     }
 }
 
@@ -818,6 +884,15 @@ footer {
     
     .project-content h3 {
         font-size: 1.25rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stat-item h3 {
+        font-size: 2rem;
     }
 }
 

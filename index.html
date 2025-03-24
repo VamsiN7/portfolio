@@ -21,7 +21,7 @@
 							<nav class="nav-links">
 								<a href="#hero">Home</a>
 								<a href="#about">About</a>
-								<a href="#projects">Projects</a>
+								<a href="#experience">Experience</a>
 								<a href="#skills">Skills</a>
 								<a href="#contact">Contact</a>
 							</nav>
@@ -43,7 +43,7 @@
 							<div class="menu-links">
 								<a href="#hero">Home</a>
 								<a href="#about">About</a>
-								<a href="#projects">Projects</a>
+								<a href="#experience">Experience</a>
 								<a href="#skills">Skills</a>
 								<a href="#contact">Contact</a>
 							</div>
@@ -58,10 +58,10 @@
 							</div>
 							<div class="hero-text" data-aos="fade-up">
 								<h1>Vamsi Naradasu</h1>
-								<div class="typewriter">Software Engineer</div>
+								<div class="typewriter">Software Engineer 💻</div>
 								<p>I learn fast, get things done, am curious and shows bias for action! Here's more <a href="#about">about me</a></p>
 								<div class="hero-cta">
-									<a href="#projects" class="btn primary">View Projects</a>
+									<a href="#experience" class="btn primary">View Experience</a>
 									<a href="#contact" class="btn secondary">Get in Touch</a>
 								</div>
 							</div>
@@ -69,19 +69,19 @@
 								<div class="skill-block">Java</div>
 								<div class="skill-block">Rust</div>
 								<div class="skill-block">Python</div>
+								<div class="skill-block">AWS</div>
 								<div class="skill-block">SQL</div>
 								<div class="skill-block">MySQL</div>
 								<div class="skill-block">MongoDB</div>
 								<div class="skill-block">PostgreSQL</div>
 								<div class="skill-block">Microservices</div>
 								<div class="skill-block">REST API</div>
-								<div class="skill-block">Datalakes</div>
+								<div class="skill-block">Datalake</div>
 								<div class="skill-block">Spring Boot</div>
 								<div class="skill-block">Kafka</div>
 								<div class="skill-block">Redis</div>
 								<div class="skill-block">gRPC</div>
 								<div class="skill-block">Protobuf</div>
-								<div class="skill-block">AWS</div>
 								<div class="skill-block">Azure</div>
 								<div class="skill-block">CI/CD</div>
 								<div class="skill-block">Jenkins</div>
@@ -125,12 +125,106 @@
 						</div>
 					</section>
 
+				<!-- Experience Section -->
+					<section id="experience" class="section">
+						<div class="container">
+							<h2 class="section-title" data-aos="fade-up">Experience</h2>
+							<div class="experience-container">
+								<div class="experience-timeline">
+									<!-- Western Union -->
+									<div class="experience-card" data-aos="fade-up">
+										<div class="card-header">
+											<div class="company-logo">
+												<i class="fas fa-building"></i>
+											</div>
+											<div class="company-info">
+												<h3>SDE 1</h3>
+												<h4>TCS - Western Union</h4>
+												<span>Bangalore, India</span><br>
+												<span class="duration">Aug 2020 - Aug 2023</span>
+											</div>
+										</div>
+										<div class="card-content">
+											<ul class="achievements">
+												<li>Led migration of legacy .NET services to microservices on AWS using Java, Spring</li>
+												<li>Implemented Redis for distributed caching to reduce database load, Kafka event-streams for error alerting, and load tested system with multi million transaction count</li>
+												<li>Built APIs, CI/CD pipelines, fault-tolerant systems with circuit breakers and adapter layers for payment gateway</li>
+												
+											</ul>
+											<div class="tech-stack">
+												<span>Java</span>
+												<span>Spring Boot</span>
+												<span>AWS</span>
+												<span>Kafka</span>
+												<span>Microservices</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- TCS -->
+									<div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+										<div class="card-header">
+											<div class="company-logo">
+												<i class="fab fa-aws"></i>
+											</div>
+											<div class="company-info">
+												<h3>SDE</h3>
+												<h4>Amazon Web Services</h4>
+												<span>Seattle, WA </span><br>
+												<span class="duration">May 2024 - Aug 2024</span>
+											</div>
+										</div>
+										<div class="card-content">
+											<ul class="achievements">
+												<li>Built a Data lake to improve visibility into distributed database's cluster metrics</li>
+												<li>Developed data ingestion pipelines, implemented asynchronous programming for metric collection from multi-AZ deployment channels</li>
+												<li>Automated cloud infrastructure provisioning using IaC and built CLI tool for oncall ops to debug real-time metrics with SQL-like syntax</li>
+											</ul>
+											<div class="tech-stack">
+												<span>Rust</span>
+												<span>Database Development</span>
+												<span>Datalake</span>
+												<span>AWS</span>
+											</div>
+										</div>
+									</div>
+
+									<!-- Northeastern -->
+									<div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+										<div class="card-header">
+											<div class="company-logo">
+												<i class="fas fa-university"></i>
+											</div>
+											<div class="company-info">
+												<h3>Teaching Assistant</h3>
+												<h4>Northeastern University</h4>
+												<span class="duration">Sep 2024 - Present</span>
+											</div>
+										</div>
+										<div class="card-content">
+											<ul class="achievements">
+												<li>Assisted in teaching OOPs, SOLID principles and Design Patterns</li>
+												<li>Mentored students in software development</li>
+												<li>Graded assignments and provided feedback</li>
+											</ul>
+											<div class="tech-stack">
+												<span>Java</span>
+												<span>Teaching</span>
+												<span>Object Oriented Design</span>
+												<span>Design Patterns</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
 				<!-- Projects Section -->
-					<section id="projects" class="section">
+					<!-- <section id="projects" class="section">
 						<div class="container">
 							<h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
 							<div class="projects-grid">
-								<!-- Project Card 1 -->
 								<article class="project-card" data-aos="fade-up">
 									<div class="project-image">
 										<img src="images/pic01.jpg" alt="One Platform" />
@@ -156,7 +250,6 @@
 									</div>
 								</article>
 
-								<!-- Project Card 2 -->
 								<article class="project-card" data-aos="fade-up" data-aos-delay="100">
 									<div class="project-image">
 										<img src="images/pic02.jpg" alt="ResQReach" />
@@ -181,11 +274,9 @@
 										</div>
 									</div>
 								</article>
-
-								<!-- Add more project cards similarly -->
 							</div>
 						</div>
-					</section>
+					</section> -->
 
 				<!-- Skills Section -->
 					<section id="skills" class="section">
@@ -200,12 +291,20 @@
 											<span>Java</span>
 										</div>
 										<div class="skill-item">
-											<i class="fas fa-code"></i>
+											<i class="fa-brands fa-rust"></i>
 											<span>Rust</span>
 										</div>
 										<div class="skill-item">
 											<i class="fab fa-python"></i>
 											<span>Python</span>
+										</div>
+										<div class="skill-item">
+											<i class="fa-brands fa-js"></i>
+											<span>Javascript</span>
+										</div>
+										<div class="skill-item">
+											<i class="fa-brands fa-linux"></i>
+											<span>linux</span>
 										</div>
 									</div>
 								</div>
@@ -213,10 +312,10 @@
 								<div class="skills-category" data-aos="fade-up" data-aos-delay="100">
 									<h3>Databases</h3>
 									<div class="skills-grid">
-										<div class="skill-item">
+										<!-- <div class="skill-item">
 											<i class="fas fa-database"></i>
 											<span>SQL</span>
-										</div>
+										</div> -->
 										<div class="skill-item">
 											<i class="fas fa-database"></i>
 											<span>MySQL</span>
@@ -228,6 +327,10 @@
 										<div class="skill-item">
 											<i class="fas fa-database"></i>
 											<span>PostgreSQL</span>
+										</div>
+										<div class="skill-item">
+											<i class="fas fa-database"></i>
+											<span>Amazon Aurora</span>
 										</div>
 									</div>
 								</div>
@@ -245,7 +348,7 @@
 										</div>
 										<div class="skill-item">
 											<i class="fas fa-database"></i>
-											<span>Datalakes</span>
+											<span>Datalake</span>
 										</div>
 										<div class="skill-item">
 											<i class="fab fa-java"></i>
@@ -256,8 +359,8 @@
 											<span>gRPC</span>
 										</div>
 										<div class="skill-item">
-											<i class="fas fa-code"></i>
-											<span>Protobuf</span>
+											<i class="fas fa-kafka"></i>
+											<span>Kafka</span>
 										</div>
 									</div>
 								</div>
@@ -319,13 +422,13 @@
 
 				<!-- Contact Section -->
 					<section id="contact" class="section">
-						<div class="container">
+						<!-- <div class="container"> -->
 							<h2 class="section-title" data-aos="fade-up">Get in Touch</h2>
 							<div class="contact-content">
 								<div class="contact-info" data-aos="fade-right">
 									<div class="contact-item">
 										<i class="fas fa-envelope"></i>
-										<a href="mailto:naradasu.v@northeastern.edu">naradasu.v@northeastern.edu</a>
+										<a href="mailto:vamsispvn@gmail.com">vamsispvn@gmail.com</a>
 									</div>
 									<div class="contact-item">
 										<i class="fas fa-phone"></i>
@@ -336,12 +439,12 @@
 										<span>Boston, MA 02119</span>
 									</div>
 									<div class="social-links">
-										<a href="#" class="social-link"><i class="fab fa-github"></i></a>
-										<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-										<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+										<a href="#https://github.com/VamsiN7" class="social-link"><i class="fab fa-github"></i></a>
+										<a href="#https://www.linkedin.com/in/vamsin7" class="social-link"><i class="fab fa-linkedin"></i></a>
+										<!-- <a href="#" class="social-link"><i class="fab fa-twitter"></i></a> -->
 									</div>
 								</div>
-								<form class="contact-form" data-aos="fade-left">
+								<!-- <form class="contact-form" data-aos="fade-left">
 									<div class="form-group">
 										<input type="text" name="name" placeholder="Your Name" required />
 									</div>
@@ -352,8 +455,8 @@
 										<textarea name="message" placeholder="Your Message" required></textarea>
 									</div>
 									<button type="submit" class="btn primary">Send Message</button>
-								</form>
-							</div>
+								</form> -->
+							<!-- </div> -->
 						</div>
 					</section>
 
@@ -365,9 +468,8 @@
 									<p>&copy; 2024 Vamsi Naradasu. All rights reserved.</p>
 								</div>
 								<div class="footer-social">
-									<a href="#" class="social-link"><i class="fab fa-github"></i></a>
-									<a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-									<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+									<a href="#https://github.com/VamsiN7" class="social-link"><i class="fab fa-github"></i></a>
+									<a href="#https://www.linkedin.com/in/vamsin7" class="social-link"><i class="fab fa-linkedin"></i></a>
 								</div>
 							</div>
 						</div>

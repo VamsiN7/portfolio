@@ -489,4 +489,5 @@
 
 	skillsObserver.observe(skillsSection);
 
-})(jQuery);
+// Experience Wheel Implementation
+// We'll add new implementation here

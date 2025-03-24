@@ -142,27 +142,72 @@
 
 			});
 
-	// Menu Toggle
-	const menuToggle = document.querySelector('.menu-toggle');
-	const closeMenu = document.querySelector('#menu .close');
+	// Mobile Menu Toggle
+	const mobileMenuToggle = document.querySelector('.menu-toggle');
+	const mobileCloseMenu = document.querySelector('.close-menu');
+	const mobileNav = document.querySelector('.mobile-nav');
 
-	menuToggle.addEventListener('click', () => {
-		$menu._show();
-		document.body.style.overflow = 'hidden';
+	if (mobileMenuToggle && mobileCloseMenu) {
+		mobileMenuToggle.addEventListener('click', () => {
+			mobileNav.classList.add('active');
+		});
+
+		mobileCloseMenu.addEventListener('click', () => {
+			mobileNav.classList.remove('active');
+		});
+	}
+
+	// Typewriter Effect
+	const heroTypewriterText = document.querySelector('.typewriter');
+	const heroText = "Full Stack Developer";
+	let typewriterIndex = 0;
+
+	function typeWriter() {
+		if (heroTypewriterText && typewriterIndex < heroText.length) {
+			heroTypewriterText.textContent += heroText.charAt(typewriterIndex);
+			typewriterIndex++;
+			setTimeout(typeWriter, 100);
+		}
+	}
+
+	if (heroTypewriterText) {
+		typeWriter();
+	}
+
+	// Intersection Observer for animations
+	const fadeInObserver = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('fade-in');
+			}
+		});
+	}, { threshold: 0.1 });
+
+	// Skill Bars Animation
+	const animatedSkillBars = document.querySelectorAll('.skill-bar');
+	animatedSkillBars.forEach(bar => {
+		fadeInObserver.observe(bar);
 	});
 
-	closeMenu.addEventListener('click', () => {
-		$menu._hide();
-		document.body.style.overflow = '';
-	});
-
-	// Close menu when clicking on a link
-	document.querySelectorAll('#menu .links a').forEach(link => {
-		link.addEventListener('click', () => {
-			$menu._hide();
-			document.body.style.overflow = '';
+	// Project Cards Animation
+	const animatedProjectCards = document.querySelectorAll('.project-card');
+	animatedProjectCards.forEach(card => {
+		card.addEventListener('mouseenter', () => {
+			card.classList.add('hover');
+		});
+		card.addEventListener('mouseleave', () => {
+			card.classList.remove('hover');
 		});
 	});
+
+	// Contact Form Handling
+	const portfolioContactForm = document.querySelector('#contact-form');
+	if (portfolioContactForm) {
+		portfolioContactForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			// Add your form submission logic here
+		});
+	}
 
 	// Smooth scroll for navigation links
 	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -534,4 +579,227 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = '';
         }
     });
+});
+
+// Circular Navigation Class
+class CircularNavigation {
+    constructor(container, items) {
+        this.container = container;
+        this.items = Array.from(items);
+        this.currentIndex = 0;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        this.isAnimating = false;
+
+        this.init();
+    }
+
+    init() {
+        this.createWrapper();
+        this.createNavDots();
+        this.setupSwipeIndicators();
+        this.updatePositions();
+        this.setupEventListeners();
+    }
+
+    createWrapper() {
+        this.wrapper = document.createElement('div');
+        this.wrapper.className = 'circular-wrapper';
+        this.items.forEach(item => this.wrapper.appendChild(item));
+        this.container.appendChild(this.wrapper);
+    }
+
+    createNavDots() {
+        const nav = document.createElement('div');
+        nav.className = 'circular-nav';
+        
+        this.items.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.addEventListener('click', () => this.goToItem(index));
+            nav.appendChild(dot);
+        });
+        
+        this.container.appendChild(nav);
+        this.updateNavDots();
+    }
+
+    setupSwipeIndicators() {
+        const leftIndicator = document.createElement('div');
+        leftIndicator.className = 'swipe-indicator swipe-left';
+        leftIndicator.innerHTML = '←';
+        
+        const rightIndicator = document.createElement('div');
+        rightIndicator.className = 'swipe-indicator swipe-right';
+        rightIndicator.innerHTML = '→';
+        
+        this.container.appendChild(leftIndicator);
+        this.container.appendChild(rightIndicator);
+    }
+
+    updateNavDots() {
+        const dots = this.container.querySelectorAll('.nav-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+
+    updatePositions() {
+        this.items.forEach((item, index) => {
+            const position = this.getPosition(index);
+            item.className = item.className.split(' ')[0] + ' ' + position;
+        });
+        this.updateNavDots();
+    }
+
+    getPosition(index) {
+        const diff = index - this.currentIndex;
+        if (diff === 0) return 'active';
+        if (diff === 1 || diff === -this.items.length + 1) return 'next';
+        if (diff === -1 || diff === this.items.length - 1) return 'prev';
+        if (diff > 1) return 'hidden-right';
+        return 'hidden';
+    }
+
+    setupEventListeners() {
+        this.container.addEventListener('touchstart', (e) => {
+            this.touchStartX = e.touches[0].clientX;
+        });
+
+        this.container.addEventListener('touchmove', (e) => {
+            if (this.isAnimating) return;
+            
+            this.touchEndX = e.touches[0].clientX;
+            const diff = this.touchStartX - this.touchEndX;
+            const percentage = (diff / window.innerWidth) * 100;
+            
+            this.wrapper.style.transform = `translateX(${-percentage * 0.5}px)`;
+        });
+
+        this.container.addEventListener('touchend', () => {
+            if (this.isAnimating) return;
+            
+            const diff = this.touchStartX - this.touchEndX;
+            const threshold = window.innerWidth * 0.2;
+            
+            this.wrapper.style.transform = '';
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    this.next();
+                } else {
+                    this.prev();
+                }
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prev();
+            if (e.key === 'ArrowRight') this.next();
+        });
+    }
+
+    next() {
+        if (this.isAnimating) return;
+        this.isAnimating = true;
+        this.currentIndex = (this.currentIndex + 1) % this.items.length;
+        this.updatePositions();
+        setTimeout(() => this.isAnimating = false, 600);
+    }
+
+    prev() {
+        if (this.isAnimating) return;
+        this.isAnimating = true;
+        this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
+        this.updatePositions();
+        setTimeout(() => this.isAnimating = false, 600);
+    }
+
+    goToItem(index) {
+        if (this.isAnimating || index === this.currentIndex) return;
+        this.isAnimating = true;
+        this.currentIndex = index;
+        this.updatePositions();
+        setTimeout(() => this.isAnimating = false, 600);
+    }
+}
+
+// Initialize all functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.menu-toggle');
+    const mobileCloseMenu = document.querySelector('.close-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+
+    if (mobileMenuToggle && mobileCloseMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+        });
+
+        mobileCloseMenu.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+        });
+    }
+
+    // Typewriter Effect
+    const heroTypewriterText = document.querySelector('.typewriter');
+    const heroText = "Full Stack Developer";
+    let typewriterIndex = 0;
+
+    function typeWriter() {
+        if (heroTypewriterText && typewriterIndex < heroText.length) {
+            heroTypewriterText.textContent += heroText.charAt(typewriterIndex);
+            typewriterIndex++;
+            setTimeout(typeWriter, 100);
+        }
+    }
+
+    if (heroTypewriterText) {
+        typeWriter();
+    }
+
+    // Intersection Observer for animations
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // Skill Bars Animation
+    const animatedSkillBars = document.querySelectorAll('.skill-bar');
+    animatedSkillBars.forEach(bar => {
+        fadeInObserver.observe(bar);
+    });
+
+    // Project Cards Animation
+    const animatedProjectCards = document.querySelectorAll('.project-card');
+    animatedProjectCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.classList.add('hover');
+        });
+        card.addEventListener('mouseleave', () => {
+            card.classList.remove('hover');
+        });
+    });
+
+    // Contact Form Handling
+    const portfolioContactForm = document.querySelector('#contact-form');
+    if (portfolioContactForm) {
+        portfolioContactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+        });
+    }
+
+    // Initialize Circular Navigation for Mobile
+    if (window.innerWidth <= 768) {
+        const skillsContainer = document.querySelector('.hero-content .skills-grid');
+        if (skillsContainer) {
+            skillsContainer.className = 'circular-container';
+            const skillBlocks = document.querySelectorAll('.skill-block');
+            new CircularNavigation(skillsContainer, skillBlocks);
+        }
+    }
 });

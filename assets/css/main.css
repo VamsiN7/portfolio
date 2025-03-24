@@ -1052,26 +1052,171 @@ footer {
 
     /* Skills Grid */
     .hero-content .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 12px;
+        display: none; /* Hide original grid */
     }
 
-    .hero-content .skill-block {
-        flex: 1 1 calc(33.333% - 0.75rem);
-        min-width: 100px;
-        padding: 1rem;
-        background: white;
-        border: 1px solid #e9ecef;
-        border-radius: 8px;
-        font-size: 0.9rem;
+    .circular-container {
+        position: relative;
+        width: 100%;
+        height: 70vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        perspective: 1200px;
+        overflow: hidden;
+    }
+
+    .circular-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .skill-block {
+        position: absolute;
+        width: 85%;
+        max-width: 300px;
+        left: 50%;
+        top: 50%;
+        transform-origin: center center;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        background: white;
+        border: 1px solid #000;
+        border-radius: 12px;
+        padding: 1.5rem;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .skill-block.active {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        z-index: 3;
+        pointer-events: auto;
+    }
+
+    .skill-block.prev {
+        transform: translate(-150%, -50%) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 2;
+        pointer-events: auto;
+    }
+
+    .skill-block.next {
+        transform: translate(50%, -50%) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 2;
+        pointer-events: auto;
+    }
+
+    .skill-block.hidden {
+        transform: translate(-200%, -50%) scale(0.6) rotateY(60deg);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .skill-block.hidden-right {
+        transform: translate(100%, -50%) scale(0.6) rotateY(-60deg);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    /* Navigation Dots */
+    .circular-nav {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.75rem;
+        z-index: 4;
+    }
+
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #e9ecef;
+        cursor: pointer;
         transition: all 0.3s ease;
+    }
+
+    .nav-dot.active {
+        background: var(--dark-color);
+        transform: scale(1.3);
+    }
+
+    /* Swipe Indicators */
+    .swipe-indicator {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: var(--dark-color);
+        opacity: 0.3;
+        transition: all 0.3s ease;
+        z-index: 4;
+    }
+
+    .swipe-left {
+        left: 1rem;
+    }
+
+    .swipe-right {
+        right: 1rem;
+    }
+
+    /* Touch Animation */
+    @keyframes touchPulse {
+        0% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.2); opacity: 0.5; }
+        100% { transform: scale(1); opacity: 0.3; }
+    }
+
+    .swipe-indicator {
+        animation: touchPulse 2s infinite;
+    }
+
+    /* Card Content Animations */
+    .skill-content {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    .skill-block.active .skill-content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Alternating Colors */
+    .skill-block:nth-child(odd) {
+        background: #000000;
+        color: white;
+    }
+
+    .skill-block:nth-child(even) {
+        background: white;
+        color: #000000;
+    }
+
+    .skill-block.active:nth-child(odd) {
+        background: white;
+        color: #000000;
+        border-color: #000000;
+    }
+
+    .skill-block.active:nth-child(even) {
+        background: #000000;
+        color: white;
+        border-color: white;
     }
 
     /* Projects Grid */
@@ -1177,15 +1322,27 @@ footer {
 
     .hero-content .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+        aspect-ratio: 1;  /* Square grid for very small devices */
+        gap: 1px;
+        padding: 1px;
     }
 
-    .hero-content .skill-block:nth-child(3n),
-    .hero-content .skill-block:nth-child(3n+1),
-    .hero-content .skill-block:nth-child(3n+2),
-    .hero-content .skill-block:nth-child(5n),
-    .hero-content .skill-block:nth-child(7n) {
-        grid-column: span 1;
-        grid-row: span 1;
+    .hero-content .skill-block {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    /* Adjust block sizes for smaller screens */
+    .hero-content .skill-block:nth-child(3n+1) {
+        grid-column: auto;  /* Reset wider blocks */
+    }
+
+    .hero-content .skill-block:nth-child(4n+1) {
+        grid-column: span 2;  /* New pattern for smaller screens */
+    }
+
+    .hero-content .skill-block:nth-child(6n) {
+        grid-row: span 2;  /* New pattern for taller blocks */
     }
 
     .section {
@@ -1938,16 +2095,171 @@ a:hover::after, button:hover::after, .btn:hover::after {
     }
 
     .hero-content .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: none; /* Hide original grid */
     }
 
-    .hero-content .skill-block:nth-child(3n),
-    .hero-content .skill-block:nth-child(3n+1),
-    .hero-content .skill-block:nth-child(3n+2),
-    .hero-content .skill-block:nth-child(5n),
-    .hero-content .skill-block:nth-child(7n) {
-        grid-column: span 1;
-        grid-row: span 1;
+    .circular-container {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1200px;
+        overflow: hidden;
+    }
+
+    .circular-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .skill-block {
+        position: absolute;
+        width: 85%;
+        max-width: 300px;
+        left: 50%;
+        top: 50%;
+        transform-origin: center center;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        background: white;
+        border: 1px solid #000;
+        border-radius: 12px;
+        padding: 1.5rem;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .skill-block.active {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        z-index: 3;
+        pointer-events: auto;
+    }
+
+    .skill-block.prev {
+        transform: translate(-150%, -50%) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 2;
+        pointer-events: auto;
+    }
+
+    .skill-block.next {
+        transform: translate(50%, -50%) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 2;
+        pointer-events: auto;
+    }
+
+    .skill-block.hidden {
+        transform: translate(-200%, -50%) scale(0.6) rotateY(60deg);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .skill-block.hidden-right {
+        transform: translate(100%, -50%) scale(0.6) rotateY(-60deg);
+        opacity: 0;
+        z-index: 1;
+    }
+
+    /* Navigation Dots */
+    .circular-nav {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.75rem;
+        z-index: 4;
+    }
+
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #e9ecef;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .nav-dot.active {
+        background: var(--dark-color);
+        transform: scale(1.3);
+    }
+
+    /* Swipe Indicators */
+    .swipe-indicator {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        color: var(--dark-color);
+        opacity: 0.3;
+        transition: all 0.3s ease;
+        z-index: 4;
+    }
+
+    .swipe-left {
+        left: 1rem;
+    }
+
+    .swipe-right {
+        right: 1rem;
+    }
+
+    /* Touch Animation */
+    @keyframes touchPulse {
+        0% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.2); opacity: 0.5; }
+        100% { transform: scale(1); opacity: 0.3; }
+    }
+
+    .swipe-indicator {
+        animation: touchPulse 2s infinite;
+    }
+
+    /* Card Content Animations */
+    .skill-content {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    .skill-block.active .skill-content {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Alternating Colors */
+    .skill-block:nth-child(odd) {
+        background: #000000;
+        color: white;
+    }
+
+    .skill-block:nth-child(even) {
+        background: white;
+        color: #000000;
+    }
+
+    .skill-block.active:nth-child(odd) {
+        background: white;
+        color: #000000;
+        border-color: #000000;
+    }
+
+    .skill-block.active:nth-child(even) {
+        background: #000000;
+        color: white;
+        border-color: white;
     }
 
     /* Projects Grid Mobile */
@@ -2037,6 +2349,27 @@ a:hover::after, button:hover::after, .btn:hover::after {
 @media (max-width: 480px) {
     .hero-content .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+        aspect-ratio: 1;  /* Square grid for very small devices */
+        gap: 1px;
+        padding: 1px;
+    }
+
+    .hero-content .skill-block {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    /* Adjust block sizes for smaller screens */
+    .hero-content .skill-block:nth-child(3n+1) {
+        grid-column: auto;  /* Reset wider blocks */
+    }
+
+    .hero-content .skill-block:nth-child(4n+1) {
+        grid-column: span 2;  /* New pattern for smaller screens */
+    }
+
+    .hero-content .skill-block:nth-child(6n) {
+        grid-row: span 2;  /* New pattern for taller blocks */
     }
 
     #skills .skills-grid {

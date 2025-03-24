@@ -341,11 +341,11 @@
 
 	// Parallax effect for hero section
 	const heroSection = document.querySelector('#hero');
-	const heroImage = document.querySelector('.hero-image');
+	const profileImage = document.querySelector('.profile-image');
 
 	window.addEventListener('scroll', () => {
 		const scrolled = window.pageYOffset;
-		heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
+		profileImage.style.transform = `translateY(${scrolled * 0.5}px)`;
 	});
 
 	// Add active class to navigation links based on scroll position

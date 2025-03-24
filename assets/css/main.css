@@ -131,6 +131,11 @@ body {
     border-radius: 50%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     animation: float 6s ease-in-out infinite;
+    background-color: #f0f0f0; /* Fallback background color */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profile-image img {
@@ -138,6 +143,9 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    display: block; /* Ensure proper display */
+    position: relative; /* Ensure proper stacking context */
+    z-index: 1; /* Ensure image is above background */
 }
 
 .profile-image:hover img {

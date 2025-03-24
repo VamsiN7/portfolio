@@ -912,31 +912,213 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .header-content {
+        padding: 1rem;
     }
-    
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+        transform: scale(1.1);
+    }
+
+    /* Mobile Menu Styles */
+    #menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        z-index: 1001;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+    }
+
+    #menu.active {
+        right: 0;
+        opacity: 1;
+    }
+
+    .menu-content {
+        padding: 2rem;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .menu-header {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        z-index: 1002;
+    }
+
+    .close {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--dark-color);
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+
+    .close:hover {
+        transform: scale(1.1);
+    }
+
+    .menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+    }
+
+    #menu.active .menu-links {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-links a {
+        color: var(--dark-color);
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        padding: 1rem;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .menu-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--gradient);
+        transition: width 0.3s ease;
+    }
+
+    .menu-links a:hover {
+        transform: translateY(-3px);
+    }
+
+    .menu-links a:hover::after {
+        width: 50%;
+    }
+
+    /* Staggered animation for menu items */
+    .menu-links a:nth-child(1) { transition-delay: 0.1s; }
+    .menu-links a:nth-child(2) { transition-delay: 0.2s; }
+    .menu-links a:nth-child(3) { transition-delay: 0.3s; }
+    .menu-links a:nth-child(4) { transition-delay: 0.4s; }
+    .menu-links a:nth-child(5) { transition-delay: 0.5s; }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
     .profile-image {
-        max-width: 200px;
+        width: 180px;
+        height: 180px;
         margin: 0 auto;
     }
-    
-    .hero-text {
-        margin: 2rem 0;
-    }
-    
+
+    /* Skills Grid */
     .hero-content .skills-grid {
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 12px;
     }
-    
-    .hero-content .skill-block:nth-child(3n),
-    .hero-content .skill-block:nth-child(3n+1),
-    .hero-content .skill-block:nth-child(3n+2),
-    .hero-content .skill-block:nth-child(5n),
-    .hero-content .skill-block:nth-child(7n) {
-        grid-column: span 1;
-        grid-row: span 1;
+
+    .hero-content .skill-block {
+        flex: 1 1 calc(33.333% - 0.75rem);
+        min-width: 100px;
+        padding: 1rem;
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    /* Experience Timeline */
+    .experience-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .experience-card {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Skills Section */
+    .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #skills .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+    }
+
+    #skills .skill-item {
+        flex: 0 1 calc(33.333% - 0.75rem);
+        min-width: 100px;
+        max-width: 120px;
     }
 
     .section {
@@ -1035,6 +1217,19 @@ footer {
 
     .stat-item h3 {
         font-size: 2rem;
+    }
+
+    .hero-content .skill-block {
+        flex: 1 1 calc(50% - 0.75rem);
+    }
+
+    #skills .skill-item {
+        flex: 0 1 calc(50% - 0.75rem);
+    }
+
+    .project-card,
+    .experience-card {
+        max-width: 100%;
     }
 }
 
@@ -1744,13 +1939,15 @@ a:hover::after, button:hover::after, .btn:hover::after {
 
     .hero-content .skills-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-        max-width: 100%;
     }
 
-    .hero-content .skill-block {
-        padding: 0.75rem;
-        font-size: 0.8rem;
+    .hero-content .skill-block:nth-child(3n),
+    .hero-content .skill-block:nth-child(3n+1),
+    .hero-content .skill-block:nth-child(3n+2),
+    .hero-content .skill-block:nth-child(5n),
+    .hero-content .skill-block:nth-child(7n) {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 
     /* Projects Grid Mobile */

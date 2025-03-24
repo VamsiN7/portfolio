@@ -491,3 +491,47 @@
 
 // Experience Wheel Implementation
 // We'll add new implementation here
+
+// Mobile Menu Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#menu');
+    const closeBtn = document.querySelector('.close');
+    const menuLinks = document.querySelectorAll('.menu-links a');
+
+    // Toggle menu
+    menuToggle.addEventListener('click', () => {
+        menu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+    });
+
+    // Close menu
+    closeBtn.addEventListener('click', () => {
+        menu.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    });
+
+    // Close menu when clicking outside
+    menu.addEventListener('click', (e) => {
+        if (e.target === menu) {
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close menu when clicking a link
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Handle escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});

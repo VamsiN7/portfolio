@@ -1573,7 +1573,6 @@ footer {
 .experience-card:hover {
     transform: translateY(-20px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    /* border-color: #E76F00; */
     border-color: #551A8B;
 }
 
@@ -1588,7 +1587,6 @@ footer {
     gap: 1rem;
     margin-bottom: 1.5rem;
     border-color: #E76F00;
-    /* border-color: #551A8B; */
 }
 
 .company-logo {
@@ -1602,12 +1600,12 @@ footer {
     font-size: 1.5rem;
     transition: all 0.4s ease;
     flex-shrink: 0;
-    color: black;  
+    color: black;
 }
 
 .experience-card:hover .company-logo {
     background: #000;
-    color: white;  
+    color: white;
 }
 
 .company-info {
@@ -1624,7 +1622,6 @@ footer {
 .company-info h4 {
     font-size: 1.1rem;
     color: #666;
-    /* color: #1b2e42; */
     transition: color 0.4s ease;
 }
 
@@ -1695,11 +1692,7 @@ footer {
     color: white;
     border-color: #000;
 }
-.project-card:hover .tech-stack span {
-    background: #000;
-    color: white;
-    border-color: #000;
-}
+
 /* Add staggered animation for achievements */
 .achievements li:nth-child(1) { animation-delay: 0.1s; }
 .achievements li:nth-child(2) { animation-delay: 0.2s; }
@@ -1707,7 +1700,7 @@ footer {
 .achievements li:nth-child(4) { animation-delay: 0.4s; }
 .achievements li:nth-child(5) { animation-delay: 0.5s; }
 
-/* Responsive Design */
+/* Responsive Design for Experience Section */
 @media (max-width: 992px) {
     .experience-timeline {
         flex-direction: column;
@@ -1761,6 +1754,177 @@ footer {
     }
 
     .company-info h4 {
+        font-size: 1rem;
+    }
+}
+
+/* Education Section */
+#education {
+    padding: 6rem 2rem;
+    background: #f8f9fa;
+    overflow: hidden;
+}
+
+.education-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 4rem 0;
+}
+
+/* Timeline line */
+.education-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #e9ecef;
+    transform: translateY(-50%);
+}
+
+.education-timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 -2rem;
+}
+
+.education-card {
+    flex: 1;
+    max-width: 500px;
+    background: white;
+    border: 1px solid #000;
+    padding: 2rem;
+    margin: 0 2rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+/* Timeline dots */
+.education-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 1rem;
+    height: 1rem;
+    background: #000;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all 0.4s ease;
+}
+
+.education-card:nth-child(1)::before {
+    left: -2.5rem;
+}
+
+.education-card:nth-child(2)::before {
+    left: -2.5rem;
+}
+
+.education-card:hover::before {
+    transform: translateY(-50%) scale(1.5);
+    background: #000;
+}
+
+.education-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: #551A8B;
+}
+
+.school-logo {
+    width: 3rem;
+    height: 3rem;
+    background: #ffffff;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+    color: black;
+}
+
+.education-card:hover .school-logo {
+    background: #000;
+    color: white;
+}
+
+.school-info {
+    flex: 1;
+}
+
+.school-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--dark-color);
+    transition: color 0.4s ease;
+}
+
+.school-info h4 {
+    font-size: 1.1rem;
+    color: #666;
+    transition: color 0.4s ease;
+}
+
+/* Responsive Design for Education Section */
+@media (max-width: 992px) {
+    .education-timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .education-container::before {
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        transform: translateX(-50%);
+    }
+
+    .education-card {
+        margin: 2rem 0;
+        max-width: 500px;
+    }
+
+    .education-card::before {
+        top: -2.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .education-card:hover::before {
+        transform: translateX(-50%) scale(1.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .education-card {
+        max-width: 100%;
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .education-card {
+        padding: 1.5rem;
+    }
+
+    .school-logo {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    .school-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .school-info h4 {
         font-size: 1rem;
     }
 }
